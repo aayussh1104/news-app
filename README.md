@@ -34,18 +34,6 @@ This project is a React-based web application that fetches news data from an API
             ├── package.json
             └── README.md
 
-
-## Getting Started
-
-To run this project locally, follow these steps:
-
-    Clone Repository: git clone https://github.com/Ashhish-h/news-app.git
-    Install Dependencies: npm install
-    Start Development Server: npm start
-    Open your browser and navigate to http://localhost:3000 to view the app.
-
-## Deployment
-    https://newshub-ashhish-h.netlify.app/
     
 ## Usage
 
