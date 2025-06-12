@@ -18,27 +18,26 @@ const useNewsData = (category, searchTerm) => {
                     throw new Error('API key is missing');
                 }
 
-                let apiUrl = `https://gnews.io/api/v4/top-headlines?lang=eng&token=${apiKey}`;
+                let apiUrl = `https://gnews.io/api/v4/top-headlines?lang=en&token=${apiKey}`;
 
                 if (category) {
                     apiUrl += `&topic=${category}`;
                 }
 
                 if (searchTerm) {
-                    apiUrl += `&q=${searchTerm}`;
+                    apiUrl += `&q=${encodeURIComponent(searchTerm)}`;
                 }
 
                 const response = await fetch(apiUrl);
-                
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status}`);
                 }
 
                 const data = await response.json();
-                setNewsData(data.articles);
-                setLoading(false);
-            } catch (error) {
-                setError(error.message);
+                setNewsData(data.articles || []);
+            } catch (err) {
+                setError(err);
+            } finally {
                 setLoading(false);
             }
         }
