@@ -46,3 +46,8 @@ This project is a React-based web application that fetches news data from an API
 
     This project was built as a demonstration of integrating React with Bootstrap for building responsive web applications.
     Special thanks to https://gnews.io for providing the news API used in this project.
+
+
+## Hosted link
+
+    https://newsssportal.netlify.app/
