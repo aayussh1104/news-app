@@ -6,7 +6,7 @@ import CustomPagination from "./CustomPagination";
 const NewsList = (props) => {
   const { category, searchTerm } = props;
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 4;
+  const pageSize = 6;
 
   const onPageChange = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -28,32 +28,41 @@ const NewsList = (props) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {currentArticle?.map((article) => (
-          <div key={article.url} className="flex">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col w-full">
-              <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
-              <div className="p-4 flex flex-col flex-grow">
-                <h2 className="text-lg font-semibold mb-2">{article.title}</h2>
-                <p className="text-gray-600 mb-4 flex-grow">{article.description}</p>
-                <a
-                  href={article.url}
-                  className="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                >
-                  Read More
-                </a>
-              </div>
-            </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {currentArticle?.map((article) => (
+      <div key={article.url} className="flex">
+        <div
+          className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col w-full transform transition duration-200 ease-in-out hover:scale-105 hover:shadow-xl cursor-pointer"
+        >
+          <img
+            src={article.image}
+            alt={article.title}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-4 flex flex-col flex-grow">
+            <h2 className="text-lg font-semibold mb-2">{article.title}</h2>
+            <p className="text-gray-600 mb-4 flex-grow">{article.description}</p>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Read More
+            </a>
           </div>
-        ))}
+        </div>
       </div>
+    ))}
+  </div>
 
-      <CustomPagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={onPageChange}
-      />
-    </div>
+  <CustomPagination
+    currentPage={currentPage}
+    totalPages={totalPages}
+    onPageChange={onPageChange}
+  />
+</div>
+
   );
 };
 

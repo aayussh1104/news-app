@@ -26,7 +26,7 @@ function CustomPagination(props) {
   };
 
   return (
-    <div className="flex justify-center items-center mt-6 space-x-2">
+    <div className="flex justify-center items-center mt-6 mb-6 space-x-2">
       <button
         onClick={() => handleNextPrev(currentPage - 1)}
         disabled={currentPage === 1}
